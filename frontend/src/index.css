@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply h-full scroll-smooth;
+  }
+  
+  body {
+    @apply bg-cursor-primary text-cursor-text-primary font-sans antialiased;
+  }
+
+  #root {
+    @apply h-full;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    @apply w-1.5;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-mono-800;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-mono-600 rounded-full hover:bg-mono-500 transition-colors;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-lg font-medium transition-all duration-200 ease-in-out;
+  }
+
+  .btn-primary {
+    @apply bg-cursor-highlight text-cursor-text-primary hover:bg-cursor-highlight-hover;
+  }
+
+  .btn-secondary {
+    @apply bg-cursor-secondary text-cursor-text-primary hover:bg-cursor-accent;
+  }
+
+  .btn-outline {
+    @apply border border-cursor-border text-cursor-text-primary hover:bg-cursor-secondary;
+  }
+
+  .input {
+    @apply bg-cursor-input border border-cursor-border rounded-lg px-4 py-2 
+           text-cursor-text-primary placeholder-cursor-text-accent
+           focus:outline-none focus:ring-2 focus:ring-cursor-highlight
+           transition-all duration-200 ease-in-out;
+  }
+
+  .card {
+    @apply bg-cursor-secondary border border-cursor-border rounded-lg p-6
+           shadow-cursor hover:shadow-cursor-hover transition-all duration-200;
+  }
+
+  .nav-link {
+    @apply text-cursor-text-secondary hover:text-cursor-text-primary
+           transition-colors duration-200 px-4 py-2 rounded-lg
+           hover:bg-cursor-secondary;
+  }
+
+  .nav-link.active {
+    @apply text-cursor-text-primary bg-cursor-secondary;
+  }
+
+  /* Product Card */
+  .product-card {
+    @apply card hover:scale-[1.02] cursor-pointer;
+  }
+
+  .product-image {
+    @apply rounded-lg w-full h-48 object-cover mb-4;
+  }
+
+  .product-title {
+    @apply text-lg font-semibold mb-2;
+  }
+
+  .product-price {
+    @apply text-cursor-highlight font-bold;
+  }
+
+  /* Form Styles */
+  .form-group {
+    @apply mb-4;
+  }
+
+  .form-label {
+    @apply block text-cursor-text-secondary mb-2 text-sm;
+  }
+
+  .form-error {
+    @apply text-cursor-error text-sm mt-1;
+  }
+
+  /* Table Styles */
+  .table {
+    @apply w-full border-collapse;
+  }
+
+  .table th {
+    @apply bg-cursor-secondary text-cursor-text-secondary text-left p-4 border-b border-cursor-border;
+  }
+
+  .table td {
+    @apply p-4 border-b border-cursor-border;
+  }
+
+  .table tr:hover {
+    @apply bg-cursor-secondary;
+  }
+
+  /* Badge Styles */
+  .badge {
+    @apply px-2 py-1 rounded-full text-xs font-medium;
+  }
+
+  .badge-success {
+    @apply bg-cursor-success/20 text-cursor-success;
+  }
+
+  .badge-error {
+    @apply bg-cursor-error/20 text-cursor-error;
+  }
+
+  .badge-warning {
+    @apply bg-cursor-warning/20 text-cursor-warning;
+  }
+
+  /* Modal Styles */
+  .modal-overlay {
+    @apply fixed inset-0 bg-black/50 backdrop-blur-sm z-40;
+  }
+
+  .modal-container {
+    @apply fixed inset-0 flex items-center justify-center z-50 p-4;
+  }
+
+  .modal-content {
+    @apply bg-cursor-secondary border border-cursor-border rounded-lg 
+           shadow-lg max-w-md w-full max-h-[90vh] overflow-y-auto;
+  }
+
+  .modal-header {
+    @apply p-6 border-b border-cursor-border;
+  }
+
+  .modal-body {
+    @apply p-6;
+  }
+
+  .modal-footer {
+    @apply p-6 border-t border-cursor-border flex justify-end gap-4;
+  }
+
+  /* Loading Spinner */
+  .spinner {
+    @apply w-6 h-6 border-2 border-cursor-text-secondary border-t-cursor-highlight
+           rounded-full animate-spin;
+  }
+}
+
+/* Better focus outline */
+:focus-visible {
+  @apply outline-none ring-2 ring-white/30 ring-offset-2 ring-offset-mono-900;
+}
+
+/* Loading animation */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Better tap highlight on mobile */
+* {
+  -webkit-tap-highlight-color: transparent;
+} 
