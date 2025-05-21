@@ -1,8 +1,6 @@
-import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { Link, useSearchParams } from 'react-router-dom';
 import { getProducts, getCategories, Product, Category } from '../services/api';
-import { ShoppingBagIcon } from '@heroicons/react/24/outline';
 
 const Products = () => {
   const [searchParams] = useSearchParams();

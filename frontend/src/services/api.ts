@@ -82,10 +82,10 @@ export const getOrders = async () => {
   return { data: [] };
 };
 
-export const createOrder = async (orderData: Partial<Order>) => {
+export const createOrder = async (_orderData: Partial<Order>) => {
   throw new Error('Not implemented');
 };
 
-export const createPaymentIntent = async (amount: number) => {
+export const createPaymentIntent = async (_amount: number) => {
   throw new Error('Not implemented');
 }; 
