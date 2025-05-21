@@ -7,6 +7,13 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     sourcemap: true,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom', 'react-router-dom'],
+        },
+      },
+    },
   },
   server: {
     port: 5173,
@@ -17,5 +24,8 @@ export default defineConfig({
         secure: false,
       },
     },
+  },
+  define: {
+    'process.env.VITE_API_URL': JSON.stringify(process.env.VITE_API_URL),
   },
 }) 
